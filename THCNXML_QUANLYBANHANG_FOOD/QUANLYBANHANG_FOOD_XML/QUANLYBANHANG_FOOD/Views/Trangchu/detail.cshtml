@@ -1,0 +1,362 @@
+﻿
+@model List<QUANLYBANHANG_FOOD.SANPHAM>
+@{
+    ViewBag.Title = "Detail";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/detail.css">
+</head>
+<body>
+    <div id="wrappers">
+        <div id="header">
+            <div class="header-nav">
+                <div class="header-nav-left">
+                    <a class="link_logo_home" href="@Url.Action("Index", "Trangchu")">
+                        UTEFood
+                        <!-- <img class="logo-home" src="images/logo_app.png" alt="logo_home"> -->
+                    </a>
+                </div>
+                <div class="header-nav-center">
+                    <div class="header-nav-content">
+                        <a href="@Url.Action("Index", "Trangchu")" style="color: #f92302;font-weight: bold;">Trang Chủ</a>
+                    </div>
+                    <div class="header-nav-content">
+                        <a href="">Mới nhất</a>
+                    </div>
+                    <div class="header-nav-content">
+                        <a href="@Url.Action("quanlysanpham", "Trangchu")">Quản lý sản phẩm</a>
+                    </div>
+                    <div class="header-nav-content">
+                        <a href="">Khuyến mãi</a>
+                    </div>
+                    <div class="header-nav-content">
+                        <a href="">Liên hệ</a>
+                    </div>
+                </div>
+                <div class="header-nav-right">
+                    <div class="header-nav-content-search">
+                    </div>
+                    <div class="header-nav-content-cart">
+                        <a class="link_cart" href="@Url.Action("cart", "Trangchu")" title="Xem giỏ hàng">
+                            <!-- <i class="fa fa-cart-plus"></i> -->
+                            <img src="~/assets/cart.png" alt="">
+                            <span class="quantity">@ViewBag.CartQuantity</span>
+                        </a>
+                    </div>
+                    <div class="header-nav-content-user-nav1">
+                        <div class="div_fauser"><i class="fa fa-user-secret" style="color: #ff5500;"></i></div>
+                        <div class="header-nav-content-user-nav1">
+                            <a href="#">Bảo mật & Quyền riêng tư</a>
+                            <a href="#">Hỗ trợ & Tư vấn</a>
+                            <a href="@Url.Action("logout", "login")">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="banner">
+            <div class="box-left">
+                <h2>
+                    <span>THỨC ĂN</span>
+                    <br>
+                    <span>THƯỢNG HẠNG</span>
+                </h2>
+                <p>
+                    Chuyên cung cấp các món ăn đảm bảo dinh dưỡng
+                    hợp vệ sinh đến người dùng, phục vụ người dùng 1 cách
+                    hoàn hảo nhất
+                </p>
+                <button>Mua ngay</button>
+            </div>
+            <div class="box-right">
+                <img src="~/assets/img_1.png" alt="">
+                <img src="~/assets/img_2.png" alt="">
+                <img src="~/assets/img_3.png" alt="">
+            </div>
+            <div class="to-bottom">
+                <a href="">
+                    <img src="~/assets/to_bottom.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div id="box_item_smalls">
+            <div class="content_slider_top">
+                <div class="content_slider_top_item">
+                    <a class="item_link" href="#">
+                        <div class="item_img">
+                            <img src="~/images/ansang.png" alt="Ăn sáng">
+                        </div>
+                        <div class="item_title">
+                            <h3>Ăn sáng</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="content_slider_top_item">
+                    <a class="item_link" href="#">
+                        <div class="item_img">
+                            <img src="~/images/anvat.png" alt="Món chính">
+                        </div>
+                        <div class="item_title">
+                            <h3>Ăn vặt</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="content_slider_top_item">
+                    <a class="item_link" href="#">
+                        <div class="item_img">
+                            <img src="~/images/khaivi.png" alt="Ăn vặt">
+                        </div>
+                        <div class="item_title">
+                            <h3>Khai vị</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="content_slider_top_item">
+                    <a class="item_link" href="#">
+                        <div class="item_img">
+                            <img src="~/images/monchinh.png" alt="Khai vị">
+                        </div>
+                        <div class="item_title">
+                            <h3>Món chính</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="content_slider_top_item">
+                    <a class="item_link" href="#">
+                        <div class="item_img">
+                            <img src="~/images/salad.png" alt="Món chay">
+                        </div>
+                        <div class="item_title">
+                            <h3>Salad</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="content_slider_top_item">
+                    <a class="item_link" href="#">
+                        <div class="item_img">
+                            <img src="~/images/lau.png" alt="Thức uống">
+                        </div>
+                        <div class="item_title">
+                            <h3>Lẩu</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="content_slider_top_item">
+                    <a class="item_link" href="#">
+                        <div class="item_img">
+                            <img src="~/images/healthy.png" alt="Ăn vặt">
+                        </div>
+                        <div class="item_title">
+                            <h3>Healthy</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="content_slider_top_item">
+                    <a class="item_link" href="#">
+                        <div class="item_img">
+                            <img src="~/images/thucuong.png" alt="Khai vị">
+                        </div>
+                        <div class="item_title">
+                            <h3>Thức uống</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="list_item">
+            <div class="list_item">
+                <div class="list_category_left">
+                    <div class="content_title_left">
+                        <h1>Danh Mục</h1>
+                    </div>
+                    <div class="category_item" ">
+                        @foreach (var item in new QUANLYBANHANG_FOOD_XMLEntities().DANHMUC)
+                        {
+                            <a href="@Url.Action("ProducsCate", new { categoryId = item.MaDM })">
+                                <li>@item.TenDM</li>
+                            </a>
+                        }
+                    </div>
+                </div>
+                <div class="list_item_right">
+                    <div class="content_title_right">
+                        <h1>Chi tiết sản phẩm</h1>
+                    </div>
+                    <div class="item_content_box">
+                        @foreach (var item in Model)
+                        {
+                        <div class="item_box_left">
+                            <div class="item_box_img">
+                                <img class="box_img" src="~/images/@item.HinhAnh" alt="">
+                            </div>
+                            <a href="/Trangchu/AddItem?productId=@item.MaSP&quantity=1" class="item_box_addcart">Thêm vào giỏ hàng</a>
+
+                        </div>
+                            <div class="item_box_right">
+                                <div class="item_box_title">
+                                    <h2 class="box_title">@item.TenSP</h2>
+                                </div>
+                                <div class="item_box_star">
+                                    <img src="~/assets/star.png" alt="">
+                                    <img src="~/assets/star.png" alt="">
+                                    <img src="~/assets/star.png" alt="">
+                                    <img src="~/assets/star.png" alt="">
+                                    <img src="~/assets/star.png" alt="">
+                                </div>
+                                <div class="item_box_mota">
+                                    <p>@item.MotaSP</p>
+                                </div>
+                                <div class="item_box_pound_soluong">
+                                    <div class="item_box_pound">
+                                        <span class="box_pound_price">
+                                            Đơn giá bán: 
+                                            <script>
+                                                var dongiaban =  @item.DonGiaBan;
+                                                document.write(dongiaban.toLocaleString('en-US') + " VNĐ");
+                                            </script>
+                                        </span>
+                                    </div>
+                                    <div class="item_box_soluong">
+                                        <span class="box_pound_soluong">Số lượng hiện còn: @item.SoLuongHienCon</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="note_title_center">
+            <div class="note_title_center">
+                <h2 title="Blog sống khỏe">
+                    <a href="~/Views/Trangchu/index.cshtml">Blog sống khỏe</a>
+                </h2>
+                <p>Kiến thức sống xanh, sống sạch, sống heathy dành cho bạn, mỗi ngày một khoẻ hơn</p>
+            </div>
+        </div>
+        <div id="standards">
+            <div class="standard">
+                <a class="link_standard_box" href="">
+                    <div class="standard_box">
+                        <div class="standard_box_img">
+                            <img src="~/images/moanngon.jpg" alt="">
+                        </div>
+                        <div class="standard_box_text">
+                            <h2>Món ăn ngon</h2>
+                            <p>Chia sẻ các món ăn ngon của các nước Á Âu.</p>
+                        </div>
+                    </div>
+                </a>
+                <a class="link_standard_box" href="">
+                    <div class="standard_box">
+                        <div class="standard_box_img">
+                            <img src="~/images/hocnauche.jpg" alt="">
+                        </div>
+                        <div class="standard_box_text">
+                            <h2>Học nấu chè</h2>
+                            <p>Khóa học làm các loại chè ngon từ Bắc chí Nam.</p>
+                        </div>
+                    </div>
+                </a>
+                <a class="link_standard_box" href="">
+                    <div class="standard_box">
+                        <div class="standard_box_img">
+                            <img src="~/images/naumonchay.jpg" alt="">
+                        </div>
+                        <div class="standard_box_text">
+                            <h2>Nấu món chay</h2>
+                            <p>Hàng trăm công thức nấu món chay đơn giản thanh đạm.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="footer_content">
+                <div class="footer_box">
+                    <h2 class="footer_box_title">Thông tin liên hệ</h2>
+                    <p>Cung cấp thực phẩm tự nhiên theo mùa đến bàn ăn mọi gia đình.</p>
+
+                    <i class="fa fa-envelope"></i>
+                    <div class="information">
+                        <strong>Email</strong>
+                        <br>
+                        <span>pdt@ute.udn.vn</span>
+                    </div>
+
+                    <i class="fa fa-clock-o"></i>
+                    <div class="information">
+                        <strong>Giờ hoạt động</strong>
+                        <br>
+                        <span>Từ 6h00 - 17h00 hàng ngày</span>
+                    </div>
+
+                    <i class="fa fa-truck"></i>
+                    <div class="information">
+                        <strong>Dịch vụ</strong>
+                        <br>
+                        <span>Nhận hàng ngay bên ngoài</span>
+                    </div>
+
+                    <i class="fa fa-mobile"></i>
+                    <div class="information">
+                        <!-- <a href="#"><strong style="font-size: 19px;">Hotline: 0971578235</strong></a>-->
+                        <strong style="font-size: 19px;">Hotline: </strong>0971578235
+                    </div>
+
+                    <i class="fa fa-map-marker"></i>
+                    <div class="information">
+                        <!--<a href="#"><strong style="font-size: 18px;">Hệ thống 18 cửa hàng tại Hà Nội</strong></a>-->
+                        <strong style="font-size: 18px;">Địa chỉ: </strong>48 Cao Thắng, Thanh Bình, Hải Châu, TP.Đà Nẵng, Việt Nam
+                    </div>
+                </div>
+                <div class="footer_box">
+                    <h2 class="footer_box_title">Danh mục sản phẩm</h2>
+                    <ul class="footer_box_list">
+                        <li><a href="#">Món ăn mới nhất</a></li>
+                        <li><a href="#">Món ăn yêu thích</a></li>
+                        <li><a href="#">Món ăn bán chạy</a></li>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer_box">
+                    <h2 class="footer_box_title">Hỗ trợ khách hàng</h2>
+                    <ul class="footer_box_list">
+                        <li><a href="">Hướng dẫn mua hàng</a></li>
+                        <li><a href="">Chính sách thẻ thành viên</a></li>
+                        <li><a href="">Chính sách khuyến mãi</a></li>
+                        <li><a href="">Chính sách đổi, trả hàng</a></li>
+                        <li><a href="">Hỗ trợ, tư vấn khách hàng</a></li>
+                    </ul>
+                </div>
+                <div class="footer_box">
+                    <h2 class="footer_box_title">Kết nối với chúng tôi</h2>
+                    <div class="footer_image">
+                        <img class="logo" src="~/assets/logo_footer.png" alt="logo">
+                        <div class="footer_image_info">
+                            <a href="#"><img class="info_fb" src="~/assets/logo_facebook.png" alt="fb"></a>
+                            <a href="#"><img class="info_ytb" src="~/assets/logo_youtube.png" alt="ytb"></a>
+                            <a href="#"><img class="info_mes" src="~/assets/logo_zalo.jpg" alt="zalo"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- <script src="JS/slide.js"></script> -->
+    <script src="~/Scripts/setBackgroundbanner.js"></script>
+
+
+
+</body>
+</html>
+

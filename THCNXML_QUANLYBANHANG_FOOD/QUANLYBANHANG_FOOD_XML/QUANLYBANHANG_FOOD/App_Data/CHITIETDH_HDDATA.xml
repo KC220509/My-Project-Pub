@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<CHITIETDH_HDDATA>
+  <CHITIETDH_HD>
+    <MaHD>2</MaHD>
+    <MaSP>5</MaSP>
+    <SoLuong>10</SoLuong>
+    <DonGia>200000.0000</DonGia>
+  </CHITIETDH_HD>
+  <CHITIETDH_HD>
+    <MaHD>2</MaHD>
+    <MaSP>18</MaSP>
+    <SoLuong>8</SoLuong>
+    <DonGia>100000.0000</DonGia>
+  </CHITIETDH_HD>
+  <CHITIETDH_HD>
+    <MaHD>3</MaHD>
+    <MaSP>2</MaSP>
+    <SoLuong>15</SoLuong>
+    <DonGia>450000.0000</DonGia>
+  </CHITIETDH_HD>
+  <CHITIETDH_HD>
+    <MaHD>3</MaHD>
+    <MaSP>18</MaSP>
+    <SoLuong>9</SoLuong>
+    <DonGia>100000.0000</DonGia>
+  </CHITIETDH_HD>
+  <CHITIETDH_HD>
+    <MaHD>6</MaHD>
+    <MaSP>19</MaSP>
+    <SoLuong>13</SoLuong>
+    <DonGia>1500000.0000</DonGia>
+  </CHITIETDH_HD>
+</CHITIETDH_HDDATA>

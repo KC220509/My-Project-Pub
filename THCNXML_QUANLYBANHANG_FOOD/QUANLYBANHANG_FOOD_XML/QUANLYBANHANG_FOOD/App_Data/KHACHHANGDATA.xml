@@ -1,0 +1,53 @@
+<?xml version="1.0" standalone="yes"?>
+<KHACHHANGDATA>
+  <KHACHHANG>
+    <MaKH>05KH000001</MaKH>
+    <TenKH>Bùi Đức Công</TenKH>
+    <NgaySinh>2003-05-22T00:00:00+07:00</NgaySinh>
+    <GioiTinh>A</GioiTinh>
+    <DiaChi>Hà Tĩnh</DiaChi>
+    <SDT_KH>0971578235</SDT_KH>
+    <EmailKH>khanhcong@gmail.com</EmailKH>
+    <Username>khanhcong09</Username>
+  </KHACHHANG>
+  <KHACHHANG>
+    <MaKH>05KH000002</MaKH>
+    <TenKH>Bùi Văn Phúc</TenKH>
+    <NgaySinh>2003-05-02T00:00:00+07:00</NgaySinh>
+    <GioiTinh>A</GioiTinh>
+    <DiaChi>Quảng Trị</DiaChi>
+    <SDT_KH>0866545525</SDT_KH>
+    <EmailKH>hoangphuc@gmail.com</EmailKH>
+    <Username>hoangphuc0205</Username>
+  </KHACHHANG>
+  <KHACHHANG>
+    <MaKH>05KH000003</MaKH>
+    <TenKH>Trần Lê Trinh</TenKH>
+    <NgaySinh>2003-10-26T00:00:00+07:00</NgaySinh>
+    <GioiTinh>U</GioiTinh>
+    <DiaChi>Quảng Nam</DiaChi>
+    <SDT_KH>0342012377</SDT_KH>
+    <EmailKH>letrinhtran@gmail.com</EmailKH>
+    <Username>letrinh2610</Username>
+  </KHACHHANG>
+  <KHACHHANG>
+    <MaKH>05KH000004</MaKH>
+    <TenKH>Trần Quang Sang</TenKH>
+    <NgaySinh>2003-05-02T00:00:00+07:00</NgaySinh>
+    <GioiTinh>A</GioiTinh>
+    <DiaChi>Quảng Ngãi</DiaChi>
+    <SDT_KH>0389327060</SDT_KH>
+    <EmailKH>quangsangtran@gmail.com</EmailKH>
+    <Username>quangsang0503</Username>
+  </KHACHHANG>
+  <KHACHHANG>
+    <MaKH>05KH000005</MaKH>
+    <TenKH>Trần Bá Nhã</TenKH>
+    <NgaySinh>2003-05-30T00:00:00+07:00</NgaySinh>
+    <GioiTinh>A</GioiTinh>
+    <DiaChi>Quảng Trị</DiaChi>
+    <SDT_KH>0817133009</SDT_KH>
+    <EmailKH>tranbanha@gmail.com</EmailKH>
+    <Username>banha3005</Username>
+  </KHACHHANG>
+</KHACHHANGDATA>

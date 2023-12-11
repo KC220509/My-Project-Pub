@@ -1,0 +1,53 @@
+<?xml version="1.0" standalone="yes"?>
+<DANHMUCDATA>
+  <DANHMUC>
+    <MaDM>1</MaDM>
+    <TenDM>Mới nhất</TenDM>
+    <MOTA>Danh mục chứa các món ăn mới nhất</MOTA>
+  </DANHMUC>
+  <DANHMUC>
+    <MaDM>2</MaDM>
+    <TenDM>Yêu thích</TenDM>
+    <MOTA>Danh mục chứa các sản phẩm được nhiều người yêu thích</MOTA>
+  </DANHMUC>
+  <DANHMUC>
+    <MaDM>3</MaDM>
+    <TenDM>Bán chạy</TenDM>
+    <MOTA>Danh mục chứa các sản phẩm bán chạy</MOTA>
+  </DANHMUC>
+  <DANHMUC>
+    <MaDM>4</MaDM>
+    <TenDM>Khai vị</TenDM>
+    <MOTA>Danh mục chứa các món khai vị</MOTA>
+  </DANHMUC>
+  <DANHMUC>
+    <MaDM>5</MaDM>
+    <TenDM>Món chay</TenDM>
+    <MOTA>Danh mục chứa các món chay</MOTA>
+  </DANHMUC>
+  <DANHMUC>
+    <MaDM>6</MaDM>
+    <TenDM>Thực phẩm</TenDM>
+    <MOTA>Danh mục chứa các loại thực phẩm</MOTA>
+  </DANHMUC>
+  <DANHMUC>
+    <MaDM>7</MaDM>
+    <TenDM>Đồ ăn nhanh</TenDM>
+    <MOTA>Danh mục chứa các đồ ăn nhanh</MOTA>
+  </DANHMUC>
+  <DANHMUC>
+    <MaDM>8</MaDM>
+    <TenDM>Lẩu</TenDM>
+    <MOTA>Danh mục chứa các món ăn lẩu(về mùa lạnh)</MOTA>
+  </DANHMUC>
+  <DANHMUC>
+    <MaDM>9</MaDM>
+    <TenDM>Đồ uống</TenDM>
+    <MOTA>Danh mục chứa các loại đồ uống</MOTA>
+  </DANHMUC>
+  <DANHMUC>
+    <MaDM>10</MaDM>
+    <TenDM>Sữa</TenDM>
+    <MOTA>Danh mục chứa các loại sữa</MOTA>
+  </DANHMUC>
+</DANHMUCDATA>

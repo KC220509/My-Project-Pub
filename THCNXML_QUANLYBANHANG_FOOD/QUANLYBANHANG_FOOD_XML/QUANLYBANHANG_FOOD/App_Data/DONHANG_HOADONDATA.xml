@@ -1,0 +1,83 @@
+<?xml version="1.0" standalone="yes"?>
+<DONHANG_HOADONDATA>
+  <DONHANG_HOADON>
+    <MaHD>1</MaHD>
+    <MaKH>05KH000004</MaKH>
+    <NgayTaoDH>2022-07-10T00:00:00+07:00</NgayTaoDH>
+    <DiaChiGiaoHang>56 Phạm Như Xương, Q.Liên Chiểu, TP.Đà Nẵng</DiaChiGiaoHang>
+    <SDTGiaoHang>0931234327</SDTGiaoHang>
+    <NgayThanhToan>2022-07-10T00:00:00+07:00</NgayThanhToan>
+    <NgayGiaoHang>2022-07-15T00:00:00+07:00</NgayGiaoHang>
+    <TrangThaiDonHang>Đã giao hàng</TrangThaiDonHang>
+  </DONHANG_HOADON>
+  <DONHANG_HOADON>
+    <MaHD>2</MaHD>
+    <MaKH>05KH000001</MaKH>
+    <NgayTaoDH>2022-08-12T00:00:00+07:00</NgayTaoDH>
+    <DiaChiGiaoHang>K82/87 Nguyễn Lương Bằng, Q.Liên Chiểu, TP.Đà Nẵng</DiaChiGiaoHang>
+    <SDTGiaoHang>0971578235</SDTGiaoHang>
+    <NgayThanhToan>2022-08-13T00:00:00+07:00</NgayThanhToan>
+    <NgayGiaoHang>2022-08-13T00:00:00+07:00</NgayGiaoHang>
+    <TrangThaiDonHang>Đang giao hàng</TrangThaiDonHang>
+  </DONHANG_HOADON>
+  <DONHANG_HOADON>
+    <MaHD>3</MaHD>
+    <MaKH>05KH000002</MaKH>
+    <NgayTaoDH>2022-12-25T00:00:00+07:00</NgayTaoDH>
+    <DiaChiGiaoHang>Phú Long, Kỳ Phú, Kỳ Anh, Hà Tĩnh</DiaChiGiaoHang>
+    <SDTGiaoHang>0864056815</SDTGiaoHang>
+    <NgayThanhToan>2022-12-25T00:00:00+07:00</NgayThanhToan>
+    <NgayGiaoHang>2023-01-01T00:00:00+07:00</NgayGiaoHang>
+    <TrangThaiDonHang>Đang vận chuyển</TrangThaiDonHang>
+  </DONHANG_HOADON>
+  <DONHANG_HOADON>
+    <MaHD>4</MaHD>
+    <MaKH>05KH000005</MaKH>
+    <NgayTaoDH>2023-04-03T00:00:00+07:00</NgayTaoDH>
+    <DiaChiGiaoHang>266 Nguyễn Tri Phương, TP.Đà Nẵng</DiaChiGiaoHang>
+    <SDTGiaoHang>0376127631</SDTGiaoHang>
+    <NgayThanhToan>2023-04-05T00:00:00+07:00</NgayThanhToan>
+    <NgayGiaoHang>2023-04-10T00:00:00+07:00</NgayGiaoHang>
+    <TrangThaiDonHang>Đang đóng gói</TrangThaiDonHang>
+  </DONHANG_HOADON>
+  <DONHANG_HOADON>
+    <MaHD>5</MaHD>
+    <MaKH>05KH000004</MaKH>
+    <NgayTaoDH>2022-11-05T00:00:00+07:00</NgayTaoDH>
+    <DiaChiGiaoHang>16 Trần Cao Vân, TP.Đà Nẵng</DiaChiGiaoHang>
+    <SDTGiaoHang>0834381436</SDTGiaoHang>
+    <NgayThanhToan>2022-11-06T00:00:00+07:00</NgayThanhToan>
+    <NgayGiaoHang>2022-11-11T00:00:00+07:00</NgayGiaoHang>
+    <TrangThaiDonHang>Chờ xử lý</TrangThaiDonHang>
+  </DONHANG_HOADON>
+  <DONHANG_HOADON>
+    <MaHD>6</MaHD>
+    <MaKH>05KH000005</MaKH>
+    <NgayTaoDH>2023-02-15T00:00:00+07:00</NgayTaoDH>
+    <DiaChiGiaoHang>120/2 Trưng Nữ Vương, Hải Châu, Đà Nẵng</DiaChiGiaoHang>
+    <SDTGiaoHang>0854753596</SDTGiaoHang>
+    <NgayThanhToan>2023-02-15T00:00:00+07:00</NgayThanhToan>
+    <NgayGiaoHang>2023-02-18T00:00:00+07:00</NgayGiaoHang>
+    <TrangThaiDonHang>Đã giao hàng</TrangThaiDonHang>
+  </DONHANG_HOADON>
+  <DONHANG_HOADON>
+    <MaHD>7</MaHD>
+    <MaKH>05KH000004</MaKH>
+    <NgayTaoDH>2023-03-22T00:00:00+07:00</NgayTaoDH>
+    <DiaChiGiaoHang>34 Hàng Trống, 111 Hàng Gai, Hoàn Kiếm, Hà Nội</DiaChiGiaoHang>
+    <SDTGiaoHang>0834381436</SDTGiaoHang>
+    <NgayThanhToan>2023-03-24T00:00:00+07:00</NgayThanhToan>
+    <NgayGiaoHang>2023-03-27T00:00:00+07:00</NgayGiaoHang>
+    <TrangThaiDonHang>Đang giao hàng</TrangThaiDonHang>
+  </DONHANG_HOADON>
+  <DONHANG_HOADON>
+    <MaHD>8</MaHD>
+    <MaKH>05KH000001</MaKH>
+    <NgayTaoDH>2023-04-24T00:00:00+07:00</NgayTaoDH>
+    <DiaChiGiaoHang>Số 44 ngõ 444, Đội Cấn, Ba Đình, Hà Nội</DiaChiGiaoHang>
+    <SDTGiaoHang>0758378295</SDTGiaoHang>
+    <NgayThanhToan>2023-04-25T00:00:00+07:00</NgayThanhToan>
+    <NgayGiaoHang>2023-04-30T00:00:00+07:00</NgayGiaoHang>
+    <TrangThaiDonHang>Đang giao hàng</TrangThaiDonHang>
+  </DONHANG_HOADON>
+</DONHANG_HOADONDATA>

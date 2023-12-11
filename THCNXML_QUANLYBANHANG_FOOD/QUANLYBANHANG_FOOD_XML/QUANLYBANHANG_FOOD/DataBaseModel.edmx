@@ -1,0 +1,657 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QUANLYBANHANG_FOOD_XMLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SDT" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="CHITIETDH_HD">
+          <Key>
+            <PropertyRef Name="MaHD" />
+            <PropertyRef Name="MaSP" />
+          </Key>
+          <Property Name="MaHD" Type="int" Nullable="false" />
+          <Property Name="MaSP" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="int" Nullable="false" />
+          <Property Name="DonGia" Type="money" />
+        </EntityType>
+        <EntityType Name="DANHMUC">
+          <Key>
+            <PropertyRef Name="MaDM" />
+          </Key>
+          <Property Name="MaDM" Type="int" Nullable="false" />
+          <Property Name="TenDM" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MOTA" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="DONHANG_HOADON">
+          <Key>
+            <PropertyRef Name="MaHD" />
+          </Key>
+          <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaKH" Type="char" MaxLength="10" />
+          <Property Name="NgayTaoDH" Type="datetime" />
+          <Property Name="DiaChiGiaoHang" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SDTGiaoHang" Type="varchar" MaxLength="10" />
+          <Property Name="NgayThanhToan" Type="datetime" Nullable="false" />
+          <Property Name="NgayGiaoHang" Type="datetime" Nullable="false" />
+          <Property Name="TrangThaiDonHang" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenKH" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="GioiTinh" Type="char" MaxLength="1" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="SDT_KH" Type="varchar" MaxLength="11" />
+          <Property Name="EmailKH" Type="varchar" MaxLength="100" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="MaSP" />
+          </Key>
+          <Property Name="MaSP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenSP" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="HinhAnh" Type="nvarchar" MaxLength="100" />
+          <Property Name="DonGiaBan" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SoLuongHienCon" Type="bigint" Nullable="false" />
+          <Property Name="SoLuongCanDuoi" Type="smallint" />
+          <Property Name="MotaSP" Type="nvarchar(max)" />
+          <Property Name="MaDM" Type="int" />
+        </EntityType>
+        <Association Name="FK_kh_hddh">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DONHANG_HOADON" Type="Self.DONHANG_HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="DONHANG_HOADON">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_madhhd">
+          <End Role="DONHANG_HOADON" Type="Self.DONHANG_HOADON" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CHITIETDH_HD" Type="Self.CHITIETDH_HD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONHANG_HOADON">
+              <PropertyRef Name="MaHD" />
+            </Principal>
+            <Dependent Role="CHITIETDH_HD">
+              <PropertyRef Name="MaHD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_madm">
+          <End Role="DANHMUC" Type="Self.DANHMUC" Multiplicity="0..1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DANHMUC">
+              <PropertyRef Name="MaDM" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="MaDM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_masp_dh">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CHITIETDH_HD" Type="Self.CHITIETDH_HD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="CHITIETDH_HD">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_username">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="KHACHHANG">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="psDeleteRecordSANPHAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MASANPHAM" Type="int" Mode="In" />
+        </Function>
+        <Function Name="psGettableDANHMUC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MADANHMUC" Type="int" Mode="In" />
+        </Function>
+        <Function Name="psgetTableLOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USERNAME" Type="nvarchar" Mode="In" />
+          <Parameter Name="PASSWORD" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="psGetTableSANPHAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MASANPHAM" Type="int" Mode="In" />
+        </Function>
+        <Function Name="psInsertRecordSANPHAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TENSANPHAM" Type="nvarchar" Mode="In" />
+          <Parameter Name="DONGIA" Type="numeric" Mode="In" />
+          <Parameter Name="SOLUONG" Type="int" Mode="In" />
+          <Parameter Name="SOLUONGCANDUOI" Type="int" Mode="In" />
+          <Parameter Name="HINHANH" Type="nvarchar" Mode="In" />
+          <Parameter Name="MOTA" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MADANHMUC" Type="int" Mode="In" />
+        </Function>
+        <Function Name="psUpdateRecordSANPHAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MASANPHAM" Type="int" Mode="In" />
+          <Parameter Name="TENSANPHAM" Type="nvarchar" Mode="In" />
+          <Parameter Name="DONGIA" Type="numeric" Mode="In" />
+          <Parameter Name="SOLUONG" Type="int" Mode="In" />
+          <Parameter Name="HINHANH" Type="nvarchar" Mode="In" />
+          <Parameter Name="MADANHMUC" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="QUANLYBANHANG_FOOD_XMLModelStoreContainer">
+          <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHITIETDH_HD" EntityType="Self.CHITIETDH_HD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DANHMUC" EntityType="Self.DANHMUC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DONHANG_HOADON" EntityType="Self.DONHANG_HOADON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_kh_hddh" Association="Self.FK_kh_hddh">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="DONHANG_HOADON" EntitySet="DONHANG_HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_madhhd" Association="Self.FK_madhhd">
+            <End Role="DONHANG_HOADON" EntitySet="DONHANG_HOADON" />
+            <End Role="CHITIETDH_HD" EntitySet="CHITIETDH_HD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_madm" Association="Self.FK_madm">
+            <End Role="DANHMUC" EntitySet="DANHMUC" />
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_masp_dh" Association="Self.FK_masp_dh">
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+            <End Role="CHITIETDH_HD" EntitySet="CHITIETDH_HD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_username" Association="Self.FK_username">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QUANLYBANHANG_FOOD_XMLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_username" FromRole="ACCOUNT" ToRole="KHACHHANG" />
+        </EntityType>
+        <EntityType Name="CHITIETDH_HD">
+          <Key>
+            <PropertyRef Name="MaHD" />
+            <PropertyRef Name="MaSP" />
+          </Key>
+          <Property Name="MaHD" Type="Int32" Nullable="false" />
+          <Property Name="MaSP" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" Nullable="false" />
+          <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="DONHANG_HOADON" Relationship="Self.FK_madhhd" FromRole="CHITIETDH_HD" ToRole="DONHANG_HOADON" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_masp_dh" FromRole="CHITIETDH_HD" ToRole="SANPHAM" />
+        </EntityType>
+        <EntityType Name="DANHMUC">
+          <Key>
+            <PropertyRef Name="MaDM" />
+          </Key>
+          <Property Name="MaDM" Type="Int32" Nullable="false" />
+          <Property Name="TenDM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MOTA" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_madm" FromRole="DANHMUC" ToRole="SANPHAM" />
+        </EntityType>
+        <EntityType Name="DONHANG_HOADON">
+          <Key>
+            <PropertyRef Name="MaHD" />
+          </Key>
+          <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="NgayTaoDH" Type="DateTime" Precision="3" />
+          <Property Name="DiaChiGiaoHang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SDTGiaoHang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NgayThanhToan" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NgayGiaoHang" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TrangThaiDonHang" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CHITIETDH_HD" Relationship="Self.FK_madhhd" FromRole="DONHANG_HOADON" ToRole="CHITIETDH_HD" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_kh_hddh" FromRole="DONHANG_HOADON" ToRole="KHACHHANG" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TenKH" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="GioiTinh" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SDT_KH" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="EmailKH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.FK_username" FromRole="KHACHHANG" ToRole="ACCOUNT" />
+          <NavigationProperty Name="DONHANG_HOADON" Relationship="Self.FK_kh_hddh" FromRole="KHACHHANG" ToRole="DONHANG_HOADON" />
+        </EntityType>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="MaSP" />
+          </Key>
+          <Property Name="MaSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DonGiaBan" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SoLuongHienCon" Type="Int64" Nullable="false" />
+          <Property Name="SoLuongCanDuoi" Type="Int16" />
+          <Property Name="MotaSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaDM" Type="Int32" />
+          <NavigationProperty Name="CHITIETDH_HD" Relationship="Self.FK_masp_dh" FromRole="SANPHAM" ToRole="CHITIETDH_HD" />
+          <NavigationProperty Name="DANHMUC" Relationship="Self.FK_madm" FromRole="SANPHAM" ToRole="DANHMUC" />
+        </EntityType>
+        <Association Name="FK_username">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="KHACHHANG">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_madhhd">
+          <End Role="DONHANG_HOADON" Type="Self.DONHANG_HOADON" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CHITIETDH_HD" Type="Self.CHITIETDH_HD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONHANG_HOADON">
+              <PropertyRef Name="MaHD" />
+            </Principal>
+            <Dependent Role="CHITIETDH_HD">
+              <PropertyRef Name="MaHD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_masp_dh">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CHITIETDH_HD" Type="Self.CHITIETDH_HD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="CHITIETDH_HD">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_madm">
+          <End Role="DANHMUC" Type="Self.DANHMUC" Multiplicity="0..1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DANHMUC">
+              <PropertyRef Name="MaDM" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="MaDM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kh_hddh">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DONHANG_HOADON" Type="Self.DONHANG_HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="DONHANG_HOADON">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QUANLYBANHANG_FOOD_XMLEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" />
+          <EntitySet Name="CHITIETDH_HD" EntityType="Self.CHITIETDH_HD" />
+          <EntitySet Name="DANHMUC" EntityType="Self.DANHMUC" />
+          <EntitySet Name="DONHANG_HOADON" EntityType="Self.DONHANG_HOADON" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" />
+          <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" />
+          <AssociationSet Name="FK_username" Association="Self.FK_username">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_madhhd" Association="Self.FK_madhhd">
+            <End Role="DONHANG_HOADON" EntitySet="DONHANG_HOADON" />
+            <End Role="CHITIETDH_HD" EntitySet="CHITIETDH_HD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_masp_dh" Association="Self.FK_masp_dh">
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+            <End Role="CHITIETDH_HD" EntitySet="CHITIETDH_HD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_madm" Association="Self.FK_madm">
+            <End Role="DANHMUC" EntitySet="DANHMUC" />
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kh_hddh" Association="Self.FK_kh_hddh">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="DONHANG_HOADON" EntitySet="DONHANG_HOADON" />
+          </AssociationSet>
+          <FunctionImport Name="psDeleteRecordSANPHAM">
+            <Parameter Name="MASANPHAM" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="psGettableDANHMUC" ReturnType="Collection(QUANLYBANHANG_FOOD_XMLModel.psGettableDANHMUC_Result)">
+            <Parameter Name="MADANHMUC" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="psgetTableLOGIN" ReturnType="Collection(QUANLYBANHANG_FOOD_XMLModel.psgetTableLOGIN_Result)">
+            <Parameter Name="USERNAME" Mode="In" Type="String" />
+            <Parameter Name="PASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="psGetTableSANPHAM" ReturnType="Collection(QUANLYBANHANG_FOOD_XMLModel.psGetTableSANPHAM_Result)">
+            <Parameter Name="MASANPHAM" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="psInsertRecordSANPHAM">
+            <Parameter Name="TENSANPHAM" Mode="In" Type="String" />
+            <Parameter Name="DONGIA" Mode="In" Type="Decimal" />
+            <Parameter Name="SOLUONG" Mode="In" Type="Int32" />
+            <Parameter Name="SOLUONGCANDUOI" Mode="In" Type="Int32" />
+            <Parameter Name="HINHANH" Mode="In" Type="String" />
+            <Parameter Name="MOTA" Mode="In" Type="String" />
+            <Parameter Name="MADANHMUC" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="psUpdateRecordSANPHAM">
+            <Parameter Name="MASANPHAM" Mode="In" Type="Int32" />
+            <Parameter Name="TENSANPHAM" Mode="In" Type="String" />
+            <Parameter Name="DONGIA" Mode="In" Type="Decimal" />
+            <Parameter Name="SOLUONG" Mode="In" Type="Int32" />
+            <Parameter Name="HINHANH" Mode="In" Type="String" />
+            <Parameter Name="MADANHMUC" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(QUANLYBANHANG_FOOD_XMLModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(QUANLYBANHANG_FOOD_XMLModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="psGettableDANHMUC_Result">
+          <Property Type="Int64" Name="autoincrement" Nullable="true" />
+          <Property Type="Int32" Name="MaDM" Nullable="false" />
+          <Property Type="String" Name="TenDM" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MOTA" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="psgetTableLOGIN_Result">
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Pass" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+        </ComplexType>
+        <ComplexType Name="psGetTableSANPHAM_Result">
+          <Property Type="Int32" Name="MaSP" Nullable="false" />
+          <Property Type="String" Name="TenSP" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="HinhAnh" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="DonGiaBan" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int64" Name="SoLuongHienCon" Nullable="false" />
+          <Property Type="Int16" Name="SoLuongCanDuoi" Nullable="true" />
+          <Property Type="String" Name="MotaSP" Nullable="true" />
+          <Property Type="Int32" Name="MaDM" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QUANLYBANHANG_FOOD_XMLModelStoreContainer" CdmEntityContainer="QUANLYBANHANG_FOOD_XMLEntities">
+          <EntitySetMapping Name="ACCOUNT">
+            <EntityTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.ACCOUNT">
+              <MappingFragment StoreEntitySet="ACCOUNT">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHITIETDH_HD">
+            <EntityTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.CHITIETDH_HD">
+              <MappingFragment StoreEntitySet="CHITIETDH_HD">
+                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DANHMUC">
+            <EntityTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.DANHMUC">
+              <MappingFragment StoreEntitySet="DANHMUC">
+                <ScalarProperty Name="MaDM" ColumnName="MaDM" />
+                <ScalarProperty Name="TenDM" ColumnName="TenDM" />
+                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DONHANG_HOADON">
+            <EntityTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.DONHANG_HOADON">
+              <MappingFragment StoreEntitySet="DONHANG_HOADON">
+                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="NgayTaoDH" ColumnName="NgayTaoDH" />
+                <ScalarProperty Name="DiaChiGiaoHang" ColumnName="DiaChiGiaoHang" />
+                <ScalarProperty Name="SDTGiaoHang" ColumnName="SDTGiaoHang" />
+                <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+                <ScalarProperty Name="NgayGiaoHang" ColumnName="NgayGiaoHang" />
+                <ScalarProperty Name="TrangThaiDonHang" ColumnName="TrangThaiDonHang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANG">
+            <EntityTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SDT_KH" ColumnName="SDT_KH" />
+                <ScalarProperty Name="EmailKH" ColumnName="EmailKH" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SANPHAM">
+            <EntityTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.SANPHAM">
+              <MappingFragment StoreEntitySet="SANPHAM">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="DonGiaBan" ColumnName="DonGiaBan" />
+                <ScalarProperty Name="SoLuongHienCon" ColumnName="SoLuongHienCon" />
+                <ScalarProperty Name="SoLuongCanDuoi" ColumnName="SoLuongCanDuoi" />
+                <ScalarProperty Name="MotaSP" ColumnName="MotaSP" />
+                <ScalarProperty Name="MaDM" ColumnName="MaDM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="psDeleteRecordSANPHAM" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.psDeleteRecordSANPHAM" />
+          <FunctionImportMapping FunctionImportName="psGettableDANHMUC" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.psGettableDANHMUC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.psGettableDANHMUC_Result">
+                <ScalarProperty Name="autoincrement" ColumnName="autoincrement" />
+                <ScalarProperty Name="MaDM" ColumnName="MaDM" />
+                <ScalarProperty Name="TenDM" ColumnName="TenDM" />
+                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="psgetTableLOGIN" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.psgetTableLOGIN">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.psgetTableLOGIN_Result">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="psGetTableSANPHAM" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.psGetTableSANPHAM">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.psGetTableSANPHAM_Result">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="DonGiaBan" ColumnName="DonGiaBan" />
+                <ScalarProperty Name="SoLuongHienCon" ColumnName="SoLuongHienCon" />
+                <ScalarProperty Name="SoLuongCanDuoi" ColumnName="SoLuongCanDuoi" />
+                <ScalarProperty Name="MotaSP" ColumnName="MotaSP" />
+                <ScalarProperty Name="MaDM" ColumnName="MaDM" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="psInsertRecordSANPHAM" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.psInsertRecordSANPHAM" />
+          <FunctionImportMapping FunctionImportName="psUpdateRecordSANPHAM" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.psUpdateRecordSANPHAM" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYBANHANG_FOOD_XMLModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QUANLYBANHANG_FOOD_XMLModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

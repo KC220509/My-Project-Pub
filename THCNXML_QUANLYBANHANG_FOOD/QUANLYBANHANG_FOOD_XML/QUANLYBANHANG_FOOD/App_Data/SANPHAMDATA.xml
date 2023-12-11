@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SANPHAMDATA>
+  <SANPHAM>
+    <MaSP>1</MaSP>
+    <TenSP>Bò bít tết</TenSP>
+    <HinhAnh>bobittet.jpg</HinhAnh>
+    <DonGiaBan>300000</DonGiaBan>
+    <SoLuongHienCon>70</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>1</MaDM>
+    <MotaSP>Bò bít tết (Beefsteak trong tiếng Anh hoặc bifteck trong tiếng Pháp) được chế biến từ thịt thăn bò. Món này thể ăn kèm sốt, hành tây, khoai tây chiên, salad,...</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>2</MaSP>
+    <TenSP>Lẩu cá mú</TenSP>
+    <HinhAnh>laucamu.jpg</HinhAnh>
+    <DonGiaBan>450000</DonGiaBan>
+    <SoLuongHienCon>50</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>8</MaDM>
+    <MotaSP>Món lẩu cá mú thường được người dân chế biến vào dịp cuối thu, đầu đông. Thịt cá mú béo và ngon nhất trong năm do nước biển nhiều thức ăn, giàu dinh dưỡng, nhiều phù sa, tốt cho cá sinh trưởng. Trời mùa đông, khi gió rét về, ngồi xì xụp bên nồi lẩu cá mú, uống rượu bứa ngâm, thưởng thức vị chua của bứa, vị thơm ngậy của cá... quả là một trải nghiệm khó quên.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>3</MaSP>
+    <TenSP>Cháo gà</TenSP>
+    <HinhAnh>chaoga.jpg</HinhAnh>
+    <DonGiaBan>450000</DonGiaBan>
+    <SoLuongHienCon>50</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>1</MaDM>
+    <MotaSP>Cháo gà là món ăn ngon và cực kỳ dễ ăn. Tôi chắc chắn với các bạn rằng, hầu hết mọi người trên đất nước Việt Nam này đều đã thưởng thức qua món cháo gà và đều ưa thích nó. Bạn đừng quên rằng, cháo gà không chỉ là món ngon buổi sáng, mà dùng vào buổi trưa hay buổi tối đều cực kỳ phù hợp. Chúc các bạn thành công với món cháo gà nhé.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>4</MaSP>
+    <TenSP>Cải ngồng RH</TenSP>
+    <HinhAnh>caingongRH.png</HinhAnh>
+    <DonGiaBan>15000</DonGiaBan>
+    <SoLuongHienCon>50</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>6</MaDM>
+    <MotaSP>Rau cải ngồng có nguồn gốc ban đầu từ Trung Quốc nên có tên tiếng Anh như trên. Theo chuyên gia, giá trị dinh dưỡng của cải ngồng rất đa dạng, giàu dưỡng chất bổ dưỡng cho cơ thể.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>5</MaSP>
+    <TenSP>Hành khô</TenSP>
+    <HinhAnh>hanhkhokinhmon.png</HinhAnh>
+    <DonGiaBan>20000</DonGiaBan>
+    <SoLuongHienCon>60</SoLuongHienCon>
+    <SoLuongCanDuoi>10</SoLuongCanDuoi>
+    <MaDM>6</MaDM>
+    <MotaSP>Hành lát khô được chế biến từ củ hành trắng hoặc hành tím ta. Củ hành được chọn lọc, sơ chế, thái thành lát mỏng, sấy khô. Do đó, sản phẩm hành khô có mùi thơm đậm đặc, giữ được hương vị lâu, lại giòn giòn, rất dễ sử dụng.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>6</MaSP>
+    <TenSP>Dưa hấu có hạt</TenSP>
+    <HinhAnh>duahaucohat.png</HinhAnh>
+    <DonGiaBan>350000</DonGiaBan>
+    <SoLuongHienCon>100</SoLuongHienCon>
+    <SoLuongCanDuoi>10</SoLuongCanDuoi>
+    <MaDM>6</MaDM>
+    <MotaSP>Dưa hấu Pepino có nguồn gốc từ Nam Mỹ, chỉ bé bằng nắm tay người lớn, hình thon dài, nặng khoảng vài lạng, có mùi thơm nhẹ, vị thanh mát. Điểm đặc biệt của loại quả này là tùy theo từng giai đoạn sẽ mang mùi vị của 10 loại trái cây khác nhau, như vị chuối, mít, ổi, xoài, kiwi, dưa lưới, dưa lê, dưa hấu, măng cụt, lê...</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>7</MaSP>
+    <TenSP>Mỳ hộp</TenSP>
+    <HinhAnh>myhop.jpg</HinhAnh>
+    <DonGiaBan>90000</DonGiaBan>
+    <SoLuongHienCon>140</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>7</MaDM>
+    <MotaSP>Mì ăn liền là một loại thực phẩm tiện lợi và phổ biến, được sản xuất dưới dạng gói hoặc hộp. Thực phẩm này thường bao gồm mì sợi đã được nấu chín trước đó và kèm theo bột gia vị hoặc nước sôi để tạo nên một bữa ăn nhanh chóng và dễ chế biến. Mì ăn liền được ưa chuộng vì tính tiện lợi, đa dạng vị, và có thể được lưu trữ lâu dài.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>8</MaSP>
+    <TenSP>Quýt đường</TenSP>
+    <HinhAnh>quytduong.jpg</HinhAnh>
+    <DonGiaBan>110000</DonGiaBan>
+    <SoLuongHienCon>54</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>6</MaDM>
+    <MotaSP>Quýt đường là một loại trái cây có hình dáng tròn hoặc hình bầu dục, với mặt vỏ màu cam hoặc vàng. Trái quýt đường có thể biến thiên về kích thước tùy thuộc vào loại và chủng loại. Vỏ của quýt đường có thể dễ bóc hoặc khó bóc tùy thuộc vào sự chín mọng.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>9</MaSP>
+    <TenSP>Thịt bò thăn</TenSP>
+    <HinhAnh>thitbothan.png</HinhAnh>
+    <DonGiaBan>70000</DonGiaBan>
+    <SoLuongHienCon>99</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>6</MaDM>
+    <MotaSP>Thịt bò thăn là phần cơ của con bò, được chế biến từ cả hai bên đùi sau. Nó có cấu trúc hữu ích cho nấu nướng và nên chứa ít mỡ hơn so với các phần khác của thịt bò.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>10</MaSP>
+    <TenSP>Sữa Milo</TenSP>
+    <HinhAnh>suamilo.jpg</HinhAnh>
+    <DonGiaBan>130000</DonGiaBan>
+    <SoLuongHienCon>50</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>10</MaDM>
+    <MotaSP>Sữa Milo là sự kết hợp giữa sữa và bột Milo, tạo nên một đồ uống dinh dưỡng với hương vị thơm ngon của sô cô la và malt. Nó thường được xem là một lựa chọn ngon miệng và năng lượng.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>11</MaSP>
+    <TenSP>Nước Coca Cola</TenSP>
+    <HinhAnh>cocacola.png</HinhAnh>
+    <DonGiaBan>80000</DonGiaBan>
+    <SoLuongHienCon>80</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>9</MaDM>
+    <MotaSP>Coca Cola là một loại đồ uống có ga, có hương vị ngọt ngào và một chút cảm giác cay. Được biết đến trên toàn thế giới, Coca Cola là một trong những đồ uống có hình ảnh mạnh mẽ và thường được sử dụng như một loại nước ngọt.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>12</MaSP>
+    <TenSP>Thịt diềm bò</TenSP>
+    <HinhAnh>thitdiembo.jpg</HinhAnh>
+    <DonGiaBan>110000</DonGiaBan>
+    <SoLuongHienCon>200</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>6</MaDM>
+    <MotaSP>Thịt diềm bò là một phần từ đùi sau của con bò, có cấu trúc thịt đồng đều với một lớp mỡ bao phủ. Đây là một phần thịt thơm ngon và thích hợp cho nhiều phương pháp nấu ăn, từ nướng đến hấp.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>13</MaSP>
+    <TenSP>Sữa Cacao</TenSP>
+    <HinhAnh>cacaosuada.jpg</HinhAnh>
+    <DonGiaBan>25000</DonGiaBan>
+    <SoLuongHienCon>100</SoLuongHienCon>
+    <SoLuongCanDuoi>10</SoLuongCanDuoi>
+    <MaDM>10</MaDM>
+    <MotaSP>Sữa cacao là đồ uống được làm từ sữa và bột cacao, tạo nên hương vị ngon ngọt và thơm của cacao, thường được thưởng thức làm đồ uống sáng hoặc ăn kèm với bánh.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>14</MaSP>
+    <TenSP>Rau mồng tơi</TenSP>
+    <HinhAnh>raumongtoi.png</HinhAnh>
+    <DonGiaBan>100000</DonGiaBan>
+    <SoLuongHienCon>95</SoLuongHienCon>
+    <SoLuongCanDuoi>10</SoLuongCanDuoi>
+    <MaDM>6</MaDM>
+    <MotaSP>Rau mồng tơi là một loại rau xanh, có lá hình trái tim và thường được sử dụng trong các món xào, luộc hoặc chế biến thành các món ăn khác.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>15</MaSP>
+    <TenSP>Trứng gà quê</TenSP>
+    <HinhAnh>trungga.jpg</HinhAnh>
+    <DonGiaBan>1500000</DonGiaBan>
+    <SoLuongHienCon>67</SoLuongHienCon>
+    <SoLuongCanDuoi>15</SoLuongCanDuoi>
+    <MaDM>6</MaDM>
+    <MotaSP>Trứng gà quê là trứng được sản xuất từ gà sống chăn nuôi tại nông thôn, thường có lòng đỏ màu đậm và hương vị đặc trưng.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>16</MaSP>
+    <TenSP>Tôm chiên giòn</TenSP>
+    <HinhAnh>tomchiengion.jpg</HinhAnh>
+    <DonGiaBan>110000</DonGiaBan>
+    <SoLuongHienCon>200</SoLuongHienCon>
+    <SoLuongCanDuoi>5</SoLuongCanDuoi>
+    <MaDM>1</MaDM>
+    <MotaSP>Tôm chiên giòn là món ăn được làm từ tôm được phủ lớp bột chiên giòn, tạo nên vị ngon, giòn rụm và thường được ăn kèm với sốt.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>17</MaSP>
+    <TenSP>Bò nướng lá lốt</TenSP>
+    <HinhAnh>bonuonglalot.jpg</HinhAnh>
+    <DonGiaBan>250000</DonGiaBan>
+    <SoLuongHienCon>140</SoLuongHienCon>
+    <SoLuongCanDuoi>10</SoLuongCanDuoi>
+    <MaDM>1</MaDM>
+    <MotaSP>Bò nướng lá lốt là một món ăn truyền thống, trong đó thịt bò được cuốn trong lá lốt và nướng, tạo nên hương vị độc đáo và thơm ngon.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>18</MaSP>
+    <TenSP>Súp bào ngư</TenSP>
+    <HinhAnh>supbaongu.png</HinhAnh>
+    <DonGiaBan>100000</DonGiaBan>
+    <SoLuongHienCon>95</SoLuongHienCon>
+    <SoLuongCanDuoi>10</SoLuongCanDuoi>
+    <MaDM>1</MaDM>
+    <MotaSP>Súp bào ngư là một món súp chứa ngư, thường được nấu với nước dùng thơm ngon và các thành phần khác như rau củ.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>19</MaSP>
+    <TenSP>Gan ngỗng áp chảo</TenSP>
+    <HinhAnh>ganngonapchao.png</HinhAnh>
+    <DonGiaBan>1500000</DonGiaBan>
+    <SoLuongHienCon>67</SoLuongHienCon>
+    <SoLuongCanDuoi>15</SoLuongCanDuoi>
+    <MaDM>1</MaDM>
+    <MotaSP>Gan ngỗng áp chảo là món ăn chế biến từ gan ngỗng, thường được áp chảo nhanh chóng với các gia vị để giữ lại hương vị tự nhiên của gan.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>20</MaSP>
+    <TenSP>Sa lát cá hồi</TenSP>
+    <HinhAnh>saladcahoi.png</HinhAnh>
+    <DonGiaBan>200000</DonGiaBan>
+    <SoLuongHienCon>159</SoLuongHienCon>
+    <SoLuongCanDuoi>50</SoLuongCanDuoi>
+    <MaDM>1</MaDM>
+    <MotaSP>Sa lát cá hồi là một món sa lát chứa các lớp rau xanh, hỗn hợp cá hồi tươi ngon và sốt phù hợp, tạo nên một bữa ăn nhẹ và giàu chất dinh dưỡng.</MotaSP>
+  </SANPHAM>
+  <SANPHAM>
+    <MaSP>21</MaSP>
+    <TenSP>Sườn heo chua ngọt</TenSP>
+    <HinhAnh>suongheochuangot.jpg</HinhAnh>
+    <DonGiaBan>45000</DonGiaBan>
+    <SoLuongHienCon>140</SoLuongHienCon>
+    <SoLuongCanDuoi>10</SoLuongCanDuoi>
+    <MaDM>2</MaDM>
+    <MotaSP>Món sườn heo xào chua ngọt là một món ăn ngon và hấp dẫn, kết hợp giữa hương vị cay nồng của sườn heo và hương vị chua ngọt của nước sốt.</MotaSP>
+  </SANPHAM>
+</SANPHAMDATA>
