@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYBANHANG_FOODModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_username" FromRole="ACCOUNT" ToRole="KHACHHANG" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CHITIETDH_HD">
+    <Key>
+      <PropertyRef Name="MaHD" />
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaHD" Type="Int32" Nullable="false" />
+    <Property Name="MaSP" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="DONHANG_HOADON" Relationship="Self.FK_madhhd" FromRole="CHITIETDH_HD" ToRole="DONHANG_HOADON" />
+    <NavigationProperty Name="SANPHAM" Relationship="Self.FK_masp_dh" FromRole="CHITIETDH_HD" ToRole="SANPHAM" />
+  </EntityType>
+  <EntityType Name="DANHMUC">
+    <Key>
+      <PropertyRef Name="MaDM" />
+    </Key>
+    <Property Name="MaDM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MOTA" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SANPHAM" Relationship="Self.FK_madm" FromRole="DANHMUC" ToRole="SANPHAM" />
+  </EntityType>
+  <EntityType Name="DONHANG_HOADON">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="NgayTaoDH" Type="DateTime" Precision="3" />
+    <Property Name="DiaChiGiaoHang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SDTGiaoHang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NgayThanhToan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NgayGiaoHang" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TrangThaiDonHang" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CHITIETDH_HD" Relationship="Self.FK_madhhd" FromRole="DONHANG_HOADON" ToRole="CHITIETDH_HD" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_kh_hddh" FromRole="DONHANG_HOADON" ToRole="KHACHHANG" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenKH" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT_KH" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="EmailKH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK_username" FromRole="KHACHHANG" ToRole="ACCOUNT" />
+    <NavigationProperty Name="DONHANG_HOADON" Relationship="Self.FK_kh_hddh" FromRole="KHACHHANG" ToRole="DONHANG_HOADON" />
+  </EntityType>
+  <EntityType Name="SANPHAM">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DonGiaBan" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SoLuongHienCon" Type="Int64" Nullable="false" />
+    <Property Name="SoLuongCanDuoi" Type="Int16" />
+    <Property Name="MaDM" Type="Int32" />
+    <NavigationProperty Name="CHITIETDH_HD" Relationship="Self.FK_masp_dh" FromRole="SANPHAM" ToRole="CHITIETDH_HD" />
+    <NavigationProperty Name="DANHMUC" Relationship="Self.FK_madm" FromRole="SANPHAM" ToRole="DANHMUC" />
+    <Property Name="MotaSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_username">
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="KHACHHANG">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_madhhd">
+    <End Role="DONHANG_HOADON" Type="Self.DONHANG_HOADON" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CHITIETDH_HD" Type="Self.CHITIETDH_HD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONHANG_HOADON">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="CHITIETDH_HD">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_masp_dh">
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CHITIETDH_HD" Type="Self.CHITIETDH_HD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAM">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CHITIETDH_HD">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_madm">
+    <End Role="DANHMUC" Type="Self.DANHMUC" Multiplicity="0..1" />
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DANHMUC">
+        <PropertyRef Name="MaDM" />
+      </Principal>
+      <Dependent Role="SANPHAM">
+        <PropertyRef Name="MaDM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kh_hddh">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DONHANG_HOADON" Type="Self.DONHANG_HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DONHANG_HOADON">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QUANLYBANHANG_FOODEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" />
+    <EntitySet Name="CHITIETDH_HD" EntityType="Self.CHITIETDH_HD" />
+    <EntitySet Name="DANHMUC" EntityType="Self.DANHMUC" />
+    <EntitySet Name="DONHANG_HOADON" EntityType="Self.DONHANG_HOADON" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" />
+    <AssociationSet Name="FK_username" Association="Self.FK_username">
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_madhhd" Association="Self.FK_madhhd">
+      <End Role="DONHANG_HOADON" EntitySet="DONHANG_HOADON" />
+      <End Role="CHITIETDH_HD" EntitySet="CHITIETDH_HD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_masp_dh" Association="Self.FK_masp_dh">
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
+      <End Role="CHITIETDH_HD" EntitySet="CHITIETDH_HD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_madm" Association="Self.FK_madm">
+      <End Role="DANHMUC" EntitySet="DANHMUC" />
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kh_hddh" Association="Self.FK_kh_hddh">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DONHANG_HOADON" EntitySet="DONHANG_HOADON" />
+    </AssociationSet>
+    <FunctionImport Name="psDeleteRecordSANPHAM">
+      <Parameter Name="MASANPHAM" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="psGettableDANHMUC" ReturnType="Collection(QUANLYBANHANG_FOODModel.psGettableDANHMUC_Result)">
+      <Parameter Name="MADANHMUC" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="psgetTableLOGIN" ReturnType="Collection(QUANLYBANHANG_FOODModel.psgetTableLOGIN_Result)">
+      <Parameter Name="USERNAME" Mode="In" Type="String" />
+      <Parameter Name="PASSWORD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="psGetTableSANPHAM" ReturnType="Collection(QUANLYBANHANG_FOODModel.psGetTableSANPHAM_Result)">
+      <Parameter Name="MASANPHAM" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="psInsertRecordSANPHAM">
+      <Parameter Name="TENSANPHAM" Mode="In" Type="String" />
+      <Parameter Name="DONGIA" Mode="In" Type="Decimal" />
+      <Parameter Name="SOLUONG" Mode="In" Type="Int32" />
+      <Parameter Name="SOLUONGCANDUOI" Mode="In" Type="Int32" />
+      <Parameter Name="HINHANH" Mode="In" Type="String" />
+      <Parameter Name="MOTA" Mode="In" Type="String" />
+      <Parameter Name="MADANHMUC" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="psUpdateRecordSANPHAM">
+      <Parameter Name="MASANPHAM" Mode="In" Type="Int32" />
+      <Parameter Name="TENSANPHAM" Mode="In" Type="String" />
+      <Parameter Name="DONGIA" Mode="In" Type="Decimal" />
+      <Parameter Name="SOLUONG" Mode="In" Type="Int32" />
+      <Parameter Name="HINHANH" Mode="In" Type="String" />
+      <Parameter Name="MADANHMUC" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="psGettableDANHMUC_Result">
+    <Property Type="Int64" Name="autoincrement" Nullable="true" />
+    <Property Type="Int32" Name="MaDM" Nullable="false" />
+    <Property Type="String" Name="TenDM" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MOTA" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="psgetTableLOGIN_Result">
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Pass" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="psGetTableSANPHAM_Result">
+    <Property Type="Int32" Name="MaSP" Nullable="false" />
+    <Property Type="String" Name="TenSP" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="HinhAnh" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="DonGiaBan" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int64" Name="SoLuongHienCon" Nullable="false" />
+    <Property Type="Int16" Name="SoLuongCanDuoi" Nullable="true" />
+    <Property Type="Int32" Name="MaDM" Nullable="true" />
+  </ComplexType>
+</Schema>

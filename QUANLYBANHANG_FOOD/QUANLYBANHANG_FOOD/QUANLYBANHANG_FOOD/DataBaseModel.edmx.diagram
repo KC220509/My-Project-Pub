@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d60c75e36b69415eb89110c7c7e1e3c8" Name="Diagram1">
+        <EntityTypeShape EntityType="QUANLYBANHANG_FOODModel.ACCOUNT" Width="1.5" PointX="0.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYBANHANG_FOODModel.CHITIETDH_HD" Width="1.5" PointX="5.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYBANHANG_FOODModel.DANHMUC" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYBANHANG_FOODModel.DONHANG_HOADON" Width="1.5" PointX="6.125" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYBANHANG_FOODModel.KHACHHANG" Width="1.5" PointX="3.125" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYBANHANG_FOODModel.SANPHAM" Width="1.5" PointX="3.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="QUANLYBANHANG_FOODModel.FK_username" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYBANHANG_FOODModel.FK_madhhd" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYBANHANG_FOODModel.FK_masp_dh" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYBANHANG_FOODModel.FK_madm" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYBANHANG_FOODModel.FK_kh_hddh" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

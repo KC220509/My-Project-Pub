@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QUANLYBANHANG_FOODModelStoreContainer" CdmEntityContainer="QUANLYBANHANG_FOODEntities1">
+    <EntitySetMapping Name="ACCOUNT">
+      <EntityTypeMapping TypeName="QUANLYBANHANG_FOODModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETDH_HD">
+      <EntityTypeMapping TypeName="QUANLYBANHANG_FOODModel.CHITIETDH_HD">
+        <MappingFragment StoreEntitySet="CHITIETDH_HD">
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DANHMUC">
+      <EntityTypeMapping TypeName="QUANLYBANHANG_FOODModel.DANHMUC">
+        <MappingFragment StoreEntitySet="DANHMUC">
+          <ScalarProperty Name="MaDM" ColumnName="MaDM" />
+          <ScalarProperty Name="TenDM" ColumnName="TenDM" />
+          <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONHANG_HOADON">
+      <EntityTypeMapping TypeName="QUANLYBANHANG_FOODModel.DONHANG_HOADON">
+        <MappingFragment StoreEntitySet="DONHANG_HOADON">
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="NgayTaoDH" ColumnName="NgayTaoDH" />
+          <ScalarProperty Name="DiaChiGiaoHang" ColumnName="DiaChiGiaoHang" />
+          <ScalarProperty Name="SDTGiaoHang" ColumnName="SDTGiaoHang" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="NgayGiaoHang" ColumnName="NgayGiaoHang" />
+          <ScalarProperty Name="TrangThaiDonHang" ColumnName="TrangThaiDonHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANG">
+      <EntityTypeMapping TypeName="QUANLYBANHANG_FOODModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SDT_KH" ColumnName="SDT_KH" />
+          <ScalarProperty Name="EmailKH" ColumnName="EmailKH" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SANPHAM">
+      <EntityTypeMapping TypeName="QUANLYBANHANG_FOODModel.SANPHAM">
+        <MappingFragment StoreEntitySet="SANPHAM">
+          <ScalarProperty Name="MotaSP" ColumnName="MotaSP" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="DonGiaBan" ColumnName="DonGiaBan" />
+          <ScalarProperty Name="SoLuongHienCon" ColumnName="SoLuongHienCon" />
+          <ScalarProperty Name="SoLuongCanDuoi" ColumnName="SoLuongCanDuoi" />
+          <ScalarProperty Name="MaDM" ColumnName="MaDM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="psDeleteRecordSANPHAM" FunctionName="QUANLYBANHANG_FOODModel.Store.psDeleteRecordSANPHAM" />
+    <FunctionImportMapping FunctionImportName="psGettableDANHMUC" FunctionName="QUANLYBANHANG_FOODModel.Store.psGettableDANHMUC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYBANHANG_FOODModel.psGettableDANHMUC_Result">
+          <ScalarProperty Name="autoincrement" ColumnName="autoincrement" />
+          <ScalarProperty Name="MaDM" ColumnName="MaDM" />
+          <ScalarProperty Name="TenDM" ColumnName="TenDM" />
+          <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="psgetTableLOGIN" FunctionName="QUANLYBANHANG_FOODModel.Store.psgetTableLOGIN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYBANHANG_FOODModel.psgetTableLOGIN_Result">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="psGetTableSANPHAM" FunctionName="QUANLYBANHANG_FOODModel.Store.psGetTableSANPHAM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYBANHANG_FOODModel.psGetTableSANPHAM_Result">
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="DonGiaBan" ColumnName="DonGiaBan" />
+          <ScalarProperty Name="SoLuongHienCon" ColumnName="SoLuongHienCon" />
+          <ScalarProperty Name="SoLuongCanDuoi" ColumnName="SoLuongCanDuoi" />
+          <ScalarProperty Name="MaDM" ColumnName="MaDM" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="psInsertRecordSANPHAM" FunctionName="QUANLYBANHANG_FOODModel.Store.psInsertRecordSANPHAM" />
+    <FunctionImportMapping FunctionImportName="psUpdateRecordSANPHAM" FunctionName="QUANLYBANHANG_FOODModel.Store.psUpdateRecordSANPHAM" />
+  </EntityContainerMapping>
+</Mapping>
