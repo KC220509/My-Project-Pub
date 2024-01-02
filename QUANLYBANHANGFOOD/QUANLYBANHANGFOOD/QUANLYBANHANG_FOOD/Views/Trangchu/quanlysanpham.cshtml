@@ -1,0 +1,401 @@
+﻿
+@{
+    ViewBag.Title = "quanlysanpham";
+}
+
+@using PagedList.Mvc;
+@model PagedList.IPagedList<QUANLYBANHANG_FOOD.SANPHAM>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sản Phẩm</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/quanlysp.css">
+</head>
+<body>
+    <div id="wrappers">
+        <div id="header">
+            <div class="header-nav">
+                <div class="header-nav-left">
+                    <a class="link_logo_home" href="@Url.Action("Index", "Trangchu")">
+                        UTEFood
+                        <!-- <img class="logo-home" src="images/logo_app.png" alt="logo_home"> -->
+                    </a>
+                </div>
+                <div class="header-nav-center">
+                    <div class="header-nav-content">
+                        <a href="@Url.Action("Index", "Trangchu")">Trang Chủ</a>
+                    </div>
+                    <div class="header-nav-content">
+                        <a href="">Tuyển Dụng</a>
+                    </div>
+                    <div class="header-nav-content">
+                        <a href="@Url.Action("quanlysanpham", "Trangchu")" style="color: #f92302;font-weight: bold;">Quản lý sản phẩm</a>
+                    </div>
+                    <div class="header-nav-content">
+                        <a href="">Khuyến mãi</a>
+                    </div>
+                    <!-- <div class="header-nav-content">
+                        <a href="">Giảm giá đặc biệt</a>
+                    </div> -->
+                    <div class="header-nav-content">
+                        <a href="">Liên hệ</a>
+                    </div>
+                </div>
+                <div class="header-nav-right">
+                    <div class="header-nav-content-search">
+                        <form action="@Url.Action("SearchQLSP", "Trangchu")" method="get">
+                            <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">
+                                <img src="~/images/search.png" alt="">
+                            </button>
+                            <input type="text" id="input-search" class="frm-search" name="input_search" placeholder="Tìm kiếm sản phẩm">
+                        </form>
+                    </div>
+                    <div class="header-nav-content-cart">
+                        <a class="link_cart" href="@Url.Action("cart", "Trangchu")" title="Xem giỏ hàng">
+                            <!-- <i class="fa fa-cart-plus"></i> -->
+                            <img src="~/assets/cart.png" alt="">
+                            <span class="quantity">@ViewBag.CartQuantity</span>
+                        </a>
+                    </div>
+                    <div>
+                        <p id="nameAcount">@ViewBag.tenKhachHang</p>
+                    </div>
+                    <div class="header-nav-content-user-nav1">
+                        <div class="div_fauser"><i class="fa fa-user-secret" style="color: #ff5500;"></i></div>
+                        <div class="header-nav-content-user-nav1">
+                            <a href="#">Bảo mật & Quyền riêng tư</a>
+                            <a href="#">Hỗ trợ & Tư vấn</a>
+                            <a href="@Url.Action("logout", "login")">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sanpham">
+            <div class="sanpham">
+                <div class="quanlysp">
+                    <form onsubmit="return submitInsert();" autocomplete="on" action="/Trangchu/insert/" method="post" id="form-insert" class="frm_insert_sp">
+                        <div class="frm_title">Quản lý sản phẩm</div>
+                        <div class="frm_top">
+                            <div class="quanly">
+                                <div class="content">
+                                    <h4>Tên sản phẩm <span class="e_tick">*</span></h4>
+                                    <input id="tensp" class="frm_insert" type="text" name="tensanpham" placeholder="Nhập tên sản phẩm">
+                                    <div id="e_tensp" class="rq">@ViewBag.ErrorName</div>
+                                </div>
+                                <div class="content">
+                                    <h4>Danh mục <span class="e_tick">*</span></h4>
+                                    <select id="danhmuc" class="frm_insert" type="text" name="danhmuc">
+                                        <option value="">--- Chọn danh mục sản phẩm ---</option>
+                                        @foreach (var item in new QUANLYBANHANG_FOODEntities1().DANHMUC)
+                                        {
+                                            <option value="@item.MaDM">@item.TenDM</option>
+                                        }
+                                    </select>
+                                    <div id="e_danhmuc" class="rq"></div>
+                                </div>
+                                <div class="content">
+                                    <h4>Hình ảnh <span class="e_tick">*</span></h4>
+                                    <input id="hinhanh" class="frm_insert" type="file" name="hinhanh" style="padding: 5px 0px;">
+                                    <div id="e_hinhanh" class="rq"></div>
+                                </div>
+                            </div>
+                            <div class="quanly">
+                                <div class="content">
+                                    <h4>Số lượng hiện còn <span class="e_tick">*</span></h4>
+                                    <input id="soluonghiencon" class="frm_insert" type="number" name="soluonghiencon" min="10" max="999" placeholder="Nhập số lượng của sản phẩm">
+                                    <div id="e_soluonghc" class="rq"></div>
+                                </div>
+                                <div class="content">
+                                    <h4>Số lượng cần dưới</h4>
+                                    <input id="soluongcanduoi" class="frm_insert" type="number" name="soluongcanduoi" value="5" min="5" max="30" placeholder="Nhập số lượng cần dưới của sản phẩm">
+                                    <div id="e_soluongcanduoi" class="rq"></div>
+                                </div>
+                                <div class="content">
+                                    <h4>Đơn giá bán <span class="e_tick">*</span></h4>
+                                    <input id="dongiaban" class="frm_insert" type="number" name="dongiaban" placeholder="Nhập giá bán của sản phẩm">
+                                    <div id="e_dongiaban" class="rq"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frm_bottom">
+                            <div class="content">
+                                <h4 style="text-align: center;">Mô tả sản phẩm</h4>
+                                <textarea id="mota" class="frm_insert" name="mota"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <input id="btn-insert" type="submit" class="btn" value="Thêm sản phẩm mới">
+                                @*<input id="btn-update" type="submit" class="btn" value="Cập nhật sản phẩm" hidden>*@
+                            </div>
+                        </div>
+                    </form>
+                    <form onsubmit="return submitUpdate();" autocomplete="on" action="/Trangchu/update/" method="post" id="form-update" class="frm_insert_sp">
+                        <div class="frm_title">Quản lý sản phẩm</div>
+                        <div class="frm_top">
+                            <div class="quanly">
+                                <input id="masp_up" class="frm_insert" type="hidden" name="masanphamup" value="">
+                                <div class="content">
+                                    <h4>Tên sản phẩm <span class="e_tick">*</span></h4>
+                                    <input id="tensp_up" class="frm_insert" type="text" name="tensanphamup" placeholder="Nhập tên sản phẩm">
+                                    <div id="e_tenspup" class="rq">@ViewBag.ErrorName</div>
+                                </div>
+                                <div class="content">
+                                    <h4>Danh mục <span class="e_tick">*</span></h4>
+                                    <select id="danhmuc_up" class="frm_insert" type="text" name="danhmucup">
+                                        <option value="">--- Chọn danh mục sản phẩm ---</option>
+                                        @foreach (var item in new QUANLYBANHANG_FOODEntities1().DANHMUC)
+                                        {
+                                            <option value="@item.MaDM">@item.TenDM</option>
+                                        }
+                                    </select>
+                                    <div id="e_danhmucup" class="rq"></div>
+                                </div>
+                                <div class="content">
+                                    <h4>Hình ảnh <span class="e_tick">*</span></h4>
+                                    <input id="hinhanh_up" class="frm_insert" type="file" name="hinhanhup" style="padding: 5px 0px;">
+                                    <div id="e_hinhanhup" class="rq"></div>
+                                </div>
+                            </div>
+                            <div class="quanly">
+                                <div class="content">
+                                    <h4>Số lượng hiện còn <span class="e_tick">*</span></h4>
+                                    <input id="soluonghiencon_up" class="frm_insert" type="number" name="soluonghienconup" min="10" max="999" placeholder="Nhập số lượng của sản phẩm">
+                                    <div id="e_soluonghcup" class="rq"></div>
+                                </div>
+                                <div class="content">
+                                    <h4>Số lượng cần dưới</h4>
+                                    <input id="soluongcanduoi_up" class="frm_insert" type="number" name="soluongcanduoiup" value="5" min="5" max="30" placeholder="Nhập số lượng cần dưới của sản phẩm">
+                                    <div id="e_soluongcanduoiup" class="rq"></div>
+                                </div>
+                                <div class="content">
+                                    <h4>Đơn giá bán <span class="e_tick">*</span></h4>
+                                    <input id="dongiaban_up" class="frm_insert" type="number" name="dongiabanup" placeholder="Nhập giá bán của sản phẩm">
+                                    <div id="e_dongiabanup" class="rq"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frm_bottom">
+                            <div class="content">
+                                <h4 style="text-align: center;">Mô tả sản phẩm</h4>
+                                <textarea id="mota_up" class="frm_insert" name="motaup"></textarea>
+                            </div>
+                            <div class="buttons">
+                                @*<input id="btn-insert" type="submit" class="btn" value="Thêm sản phẩm mới">*@
+                                <input id="btn-update" type="submit" class="btn" value="Cập nhật sản phẩm">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="note_title">
+                    <div class="note_title">
+                        <h2 title="Danh Sách Sản Phẩm">
+                            <a href="@Url.Action("quanlysanpham", "trangchu")">Danh Sách Sản Phẩm</a>
+                        </h2>
+                    </div>
+                </div>
+                <div class="danhsachsp">
+                    <table id="productTable" class="table_danhsachsp">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã Sp</th>
+                                <th colspan="2" style="text-align: left;padding-left: 20px;">Sản Phẩm</th>
+                                <th class="cart_soluong">Số Lượng</th>
+                                <th class="cart_dongiaban">Đơn Giá</th>
+                                <th>Danh Mục</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int STT = 1;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="td-STT">@STT</td>
+                                    <td class="td-MaSP">@item.MaSP</td>
+                                    <td class="td-HinhAnh">
+                                        <img src="~/images/@Url.Content(item.HinhAnh)" alt="">
+                                    </td>
+                                    <td class="td-TenSP">@item.TenSP</td>
+                                    <td class="td-SoLuong">@item.SoLuongHienCon</td>
+                                    <td class="td-DonGia">
+                                        <script>
+                                            var dongiaban =  @item.DonGiaBan;
+                                            document.write(dongiaban.toLocaleString('en-US') + " VNĐ");
+                                        </script>
+                                    </td>
+                                    <td class="td-DanhMuc">
+                                        @foreach (var tendm in new QUANLYBANHANG_FOODEntities1().DANHMUC)
+                                        {
+                                            if (item.MaDM == tendm.MaDM)
+                                            {
+                                                @tendm.TenDM
+                                            }
+                                        }
+                                    </td>
+                                    <td class="td-update">
+                                        <a class="edit" href="#" onclick="editProduct(@item.MaSP)">
+                                            <img src="~/assets/edit.png" alt="">
+                                        </a>
+                                        <a class="delete" href="@Url.Action("Delete", new {productId = item.MaSP })" data-product-id="@item.MaSP">
+                                            <img src="~/assets/delete.png" alt="">
+                                        </a>
+                                    </td>
+                                </tr>
+                                STT++;
+                            }
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="product__pagination">
+                    @Html.PagedListPager(Model, page => Url.Action("quanlysanpham", new { page = page }))
+                </div>
+            </div>
+        </div>
+
+        <div id="note_title_center">
+            <div class="note_title_center">
+                <h2 title="Blog sống xanh">
+                    <a href="./index.html">Blog sống khỏe</a>
+                </h2>
+                <p>Kiến thức sống xanh, sống sạch, sống heathy dành cho bạn, mỗi ngày một khoẻ hơn</p>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="footer_content">
+                <div class="footer_box">
+                    <h2 class="footer_box_title">Thông tin liên hệ</h2>
+                    <p>Cung cấp thực phẩm tự nhiên theo mùa đến bàn ăn mọi gia đình.</p>
+
+                    <i class="fa fa-envelope"></i>
+                    <div class="information">
+                        <strong>Email</strong>
+                        <br>
+                        <span>pdt@ute.udn.vn</span>
+                    </div>
+
+                    <i class="fa fa-clock-o"></i>
+                    <div class="information">
+                        <strong>Giờ hoạt động</strong>
+                        <br>
+                        <span>Từ 6h00 - 17h00 hàng ngày</span>
+                    </div>
+
+                    <i class="fa fa-truck"></i>
+                    <div class="information">
+                        <strong>Dịch vụ</strong>
+                        <br>
+                        <span>Nhận hàng ngay bên ngoài</span>
+                    </div>
+
+                    <i class="fa fa-mobile"></i>
+                    <div class="information">
+                        <!-- <a href="#"><strong style="font-size: 19px;">Hotline: 0971578235</strong></a>-->
+                        <strong style="font-size: 19px;">Hotline: </strong>0971578235
+                    </div>
+
+                    <i class="fa fa-map-marker"></i>
+                    <div class="information">
+                        <!--<a href="#"><strong style="font-size: 18px;">Hệ thống 18 cửa hàng tại Hà Nội</strong></a>-->
+                        <strong style="font-size: 18px;">Địa chỉ: </strong>48 Cao Thắng, Thanh Bình, Hải Châu, TP.Đà Nẵng, Việt Nam
+                    </div>
+                </div>
+                <div class="footer_box">
+                    <h2 class="footer_box_title">Danh mục sản phẩm</h2>
+                    <ul class="footer_box_list">
+                        <li><a href="#">Món ăn mới nhất</a></li>
+                        <li><a href="#">Món ăn yêu thích</a></li>
+                        <li><a href="#">Món ăn bán chạy</a></li>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer_box">
+                    <h2 class="footer_box_title">Hỗ trợ khách hàng</h2>
+                    <ul class="footer_box_list">
+                        <li><a href="">Hướng dẫn mua hàng</a></li>
+                        <li><a href="">Chính sách thẻ thành viên</a></li>
+                        <li><a href="">Chính sách khuyến mãi</a></li>
+                        <li><a href="">Chính sách đổi, trả hàng</a></li>
+                        <li><a href="">Hỗ trợ, tư vấn khách hàng</a></li>
+                    </ul>
+                </div>
+                <div class="footer_box">
+                    <h2 class="footer_box_title">Kết nối với chúng tôi</h2>
+                    <div class="footer_image">
+                        <img class="logo" src="~/assets/logo_footer.png" alt="logo">
+                        <div class="footer_image_info">
+                            <a href="#"><img class="info_fb" src="~/assets/logo_facebook.png" alt="fb"></a>
+                            <a href="#"><img class="info_ytb" src="~/assets/logo_youtube.png" alt="ytb"></a>
+                            <a href="#"><img class="info_mes" src="~/assets/logo_zalo.jpg" alt="zalo"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="./JS/setBackgroundbanner.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/Submit_Form.js"></script>
+    <!-- Đặt mã JavaScript vào một hàm -->
+    <script>
+        $(document).ready(function () {
+            // Ẩn form-update khi trang được load
+            $("#form-update").hide();
+
+        });
+    </script>
+    <script>
+        function editProduct(productId) {
+            // Gọi AJAX để lấy thông tin sản phẩm từ server
+            $.ajax({
+                url: '/Trangchu/GetProductById', // Điều chỉnh đường dẫn tới Action trong Controller của bạn
+                type: 'GET',
+                data: { productId: productId },
+                success: function (product) {
+                    // Điền thông tin sản phẩm vào form
+                    $("#masp_up").val(productId);
+                    $("#tensp_up").val(product.TenSP);
+                    $("#danhmuc_up").val(product.MaDM);
+                    $("#soluonghiencon_up").val(product.SoLuongHienCon);
+                    $("#soluongcanduoi_up").val(product.SoLuongCanDuoi);
+                    $("#dongiaban_up").val(product.DonGiaBan);
+                    $("#mota_up").val(product.MotaSP);
+
+
+                    $("#form-insert").hide();
+                    // Hiển thị form-update
+                    $("#form-update").show();
+
+
+                    // Ngăn chặn form mặc định từ việc submit
+                    $("#form-update").submit(function (e) {
+                        e.preventDefault();
+                    });
+
+
+
+                    // Scroll đến form để người dùng có thể thấy
+                    $("html, body").animate({ scrollTop: $("#form-update").offset().top }, "slow");
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+
+    
+</body>
+</html>
+
