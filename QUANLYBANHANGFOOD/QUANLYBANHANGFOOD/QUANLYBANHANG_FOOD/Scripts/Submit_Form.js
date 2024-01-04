@@ -122,11 +122,11 @@ function submitUpdate() {
     var soluonghiencon = document.getElementById("soluonghiencon_up");
     var dongiaban = document.getElementById("dongiaban_up");
 
-    var e_tensp = document.getElementById("e_tenspup");
-    var e_danhmuc = document.getElementById("e_danhmucup");
-    var e_hinhanh = document.getElementById("e_hinhanhup");
-    var e_soluonghc = document.getElementById("e_soluonghcup");
-    var e_dongiaban = document.getElementById("e_dongiabanup");
+    //var e_tensp = document.getElementById("e_tenspup");
+    //var e_danhmuc = document.getElementById("e_danhmucup");
+    //var e_hinhanh = document.getElementById("e_hinhanhup");
+    //var e_soluonghc = document.getElementById("e_soluonghcup");
+    //var e_dongiaban = document.getElementById("e_dongiabanup");
 
     var isFormValid = true;
 

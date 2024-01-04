@@ -18,7 +18,7 @@ namespace QUANLYBANHANG_FOOD
     public partial class QUANLYBANHANG_FOODEntities1 : DbContext
     {
         public QUANLYBANHANG_FOODEntities1()
-            : base("name=QUANLYBANHANGFOODEntities")
+            : base("name=QUANLYBANHANG_FOODEntities1")
         {
         }
     

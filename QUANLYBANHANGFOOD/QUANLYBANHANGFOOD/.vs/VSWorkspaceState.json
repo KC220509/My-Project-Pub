@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\QUANLYBANHANG_FOOD",
-    "\\QUANLYBANHANG_FOOD\\Controllers"
+    "\\QUANLYBANHANG_FOOD\\Controllers",
+    "\\QUANLYBANHANG_FOOD\\Views",
+    "\\QUANLYBANHANG_FOOD\\Views\\Trangchu"
   ],
-  "SelectedNode": "\\QUANLYBANHANG_FOOD\\Controllers\\TrangchuController.cs",
+  "SelectedNode": "\\QUANLYBANHANG_FOOD\\Views\\Trangchu\\quanlysanpham.cshtml",
   "PreviewInSolutionExplorer": false
 }

@@ -33,6 +33,7 @@ CREATE TABLE KHACHHANG
 );
 GO
 --DROP TRIGGER IF EXISTS trg_NewKH;
+
 CREATE TRIGGER trg_NewKH
 ON ACCOUNT
 AFTER INSERT
@@ -42,9 +43,10 @@ BEGIN
 
     -- Lấy thông tin tài khoản mới thêm vào
     DECLARE @NewAccounts TABLE (
+        ID INT IDENTITY(1,1),
         Username VARCHAR(50),
         Pass VARCHAR(50),
-        SDT varchar(11)
+        SDT VARCHAR(11)
     );
 
     INSERT INTO @NewAccounts (Username, Pass, SDT)
@@ -52,8 +54,13 @@ BEGIN
     FROM inserted;
 
     -- Thêm vào bảng KHACHHANG nếu tài khoản chưa tồn tại trong bảng KHACHHANG
+    DECLARE @NextMaKH INT;
+    SELECT @NextMaKH = COALESCE(MAX(CAST(SUBSTRING(MaKH, 3, 5) AS INT)), 0) + 1
+    FROM KHACHHANG;
+
+    -- Thêm vào bảng KHACHHANG nếu tài khoản chưa tồn tại trong bảng KHACHHANG
     INSERT INTO KHACHHANG (MaKH, TenKH, SDT_KH, Username)
-    SELECT 'KH' + RIGHT('00000' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) + 1 AS VARCHAR), 5),
+    SELECT 'KH' + RIGHT('00000' + CAST(@NextMaKH + ID AS VARCHAR), 5),
            NA.Username,
            NA.SDT,
            NA.Username
@@ -64,7 +71,6 @@ BEGIN
         WHERE K.Username = NA.Username
     );
 END;
-
 
 
 GO
@@ -152,7 +158,7 @@ CREATE TABLE CART
 )
 GO
 INSERT INTO ACCOUNT(Username, Pass, SDT)
-	VALUES	
+	VALUES
 		('hoangphuc0205', '02052003', '0866545525'),
 		('khanhcong09', '22052003', '0971578235'),
 		('banha3005', '30052003', '0817133009'),

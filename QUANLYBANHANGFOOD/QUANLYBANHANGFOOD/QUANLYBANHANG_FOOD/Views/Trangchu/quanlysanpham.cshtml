@@ -186,7 +186,7 @@
                                 <textarea id="mota_up" class="frm_insert" name="motaup"></textarea>
                             </div>
                             <div class="buttons">
-                                @*<input id="btn-insert" type="submit" class="btn" value="Thêm sản phẩm mới">*@
+                                <input id="btn-back" type="submit" class="btn" value="Hủy">
                                 <input id="btn-update" type="submit" class="btn" value="Cập nhật sản phẩm">
                             </div>
                         </div>
@@ -353,13 +353,20 @@
             // Ẩn form-update khi trang được load
             $("#form-update").hide();
 
+            $("#btn-back").click(function (e) {
+                e.preventDefault();
+                // Ẩn form-update
+                $("#form-update").hide();
+                // Hiển thị form-insert
+                $("#form-insert").show();
+            });
         });
     </script>
     <script>
         function editProduct(productId) {
             // Gọi AJAX để lấy thông tin sản phẩm từ server
             $.ajax({
-                url: '/Trangchu/GetProductById', // Điều chỉnh đường dẫn tới Action trong Controller của bạn
+                url: '/Trangchu/GetProductById', 
                 type: 'GET',
                 data: { productId: productId },
                 success: function (product) {

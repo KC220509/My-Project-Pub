@@ -107,7 +107,7 @@ namespace QUANLYBANHANG_FOOD.Controllers
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
-            //var product = DB.SANPHAM.Find(productId);
+            
             var product = DB.SANPHAM.Where(p => p.MaSP == productId).ToList();
             if (product == null)
             {
@@ -132,7 +132,7 @@ namespace QUANLYBANHANG_FOOD.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            string khachhangID = Session["khachhangID"]?.ToString();
+            getKhachHangID();
             var cartItems = DB.CART
                  .Where(c => c.MaKH == khachhangID)
                  .Select(c => new CartItem
@@ -212,7 +212,6 @@ namespace QUANLYBANHANG_FOOD.Controllers
                 // Lưu thay đổi vào cơ sở dữ liệu
                 DB.SaveChanges();
 
-                // Cập nhật lại số lượng trong ViewBag
                 ViewBag.CartQuantity = GetCartQuantity(khachhangID);
             }
 
@@ -223,14 +222,14 @@ namespace QUANLYBANHANG_FOOD.Controllers
         
         private int GetCartQuantity(string khachhangID)
         {
-            // Thực hiện truy vấn để lấy số lượng sản phẩm trong giỏ hàng dựa trên MaKH
+            // Lấy số lượng sản phẩm trong giỏ hàng dựa trên MaKH
             var cartQuantity = DB.CART
                 .Where(c => c.MaKH == khachhangID)
                 .Sum(c => (int?)c.Quantity) ?? 0;
 
             return cartQuantity;
         }
-
+        
 
         [HttpPost]
         public ActionResult RemoveCartItem(int[] selectedProductIds)
@@ -256,8 +255,8 @@ namespace QUANLYBANHANG_FOOD.Controllers
                 }
             }
 
-            // Sau khi xóa, có thể làm điều gì đó như redirect hoặc trả về một view
             ViewBag.CartQuantity = GetCartQuantity(khachhangID);
+
             return RedirectToAction("cart");
         }
 
@@ -323,7 +322,7 @@ namespace QUANLYBANHANG_FOOD.Controllers
                 DB.SaveChanges();
 
                 // Chuyển hướng hoặc thực hiện các hành động khác
-                return RedirectToAction("quanlysanpham", "Trangchu"); // Thay "Index" và "Home" bằng action và controller tương ứng của bạn
+                return RedirectToAction("quanlysanpham", "Trangchu");
             }
             catch (Exception ex)
             {
